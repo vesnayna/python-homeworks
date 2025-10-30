@@ -10,4 +10,4 @@ class User:
         return self.last_name
 
     def get_name_info(self):
-        return f"Product: {self.first_name}, Price: {self.last_name}"
+        return f"{self.first_name}, {self.last_name}"
