@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-
 driver = webdriver.Chrome(
     service=ChromeService(ChromeDriverManager().install()))
 
@@ -14,7 +13,6 @@ driver.implicitly_wait(20)
 driver.find_element(By.ID, "ajaxButton").click()
 
 element = driver.find_element(By.CSS_SELECTOR, "p.bg-success")
-
 
 
 text = element.text
