@@ -11,6 +11,7 @@ def driver():
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
     yield driver
     driver.quit()
+
 from pages.CalculatorPage import CalculatorPage
 
 def test_calculator(driver):
