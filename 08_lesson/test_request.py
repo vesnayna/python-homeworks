@@ -6,7 +6,6 @@ HEADERS = {"Authorization": f"Bearer {api_key}"}
 
 baseUrl = 'https://ru.yougile.com'
 
-
 def test_create_project():
     body = {
     "title": "Проект"
