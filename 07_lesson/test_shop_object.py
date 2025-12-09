@@ -20,5 +20,11 @@ def test_shop(driver):
     shop.cart_adding()
     shop.checkout()
     shop.checkout_form()
-    shop.total()
+    total = shop.total()
+
+    expected_total = 58.29
+    assert total == expected_total, (
+    f"Итоговая сумма составляет ${total:.2f}, "
+    f"ожидалось ${expected_total:.2f}")
+
     shop.close_driver()

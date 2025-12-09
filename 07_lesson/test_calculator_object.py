@@ -19,5 +19,9 @@ def test_calculator(driver):
     calculator = CalculatorPage(driver)
     calculator.enter_delay("45")
     calculator.enter_digits()
-    calculator.get_result()
+
+    res = calculator.get_result()
+
+    assert res == "15"
+
     calculator.close_driver()

@@ -54,11 +54,7 @@ class ShopPage:
         total_element = self.driver.find_element(By.CLASS_NAME, "summary_total_label")
         total_text = total_element.text
         total_value = float(total_text.split("$")[1])
-
-        expected_total = 58.29
-        assert total_value == expected_total, (
-            f"Итоговая сумма составляет ${total_value:.2f}, "
-            f"ожидалось ${expected_total:.2f}")
+        return float(total_value)
 
     def close_driver(self):
         self.driver.quit()
