@@ -5,11 +5,17 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class ShopPage:
     def __init__(self, driver):
+        """
+        Конструкция класса CalculatorPage.
+
+        :param driver: Webdriver - объект драйвера Selenium.
+        """
+
         self.driver = driver
         self.driver.get("https://www.saucedemo.com/")
         self.driver.implicitly_wait(5)
         self.driver.maximize_window()
-
+    @allure.step("Вод логина, пароля, нажатие кнопки входа")
     def entry(self):
         """
         Функция авторизации
@@ -23,6 +29,7 @@ class ShopPage:
 
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "inventory_item")))
 
+    @allure.step("Добавить товары в корзину")
     def cart_adding(self):
         """
         Функция добавления товаров в корзину
@@ -41,6 +48,7 @@ class ShopPage:
 
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "cart_item")))
 
+    @allure.step("Нажать кнопку")
     def checkout(self):
         """
         Функция нажатия кнопки Checkout
@@ -49,6 +57,7 @@ class ShopPage:
         checkout_button = self.driver.find_element(By.ID, "checkout")
         checkout_button.click()
 
+    @allure.step("Заполнить форму данными")
     def checkout_form(self):
         """
         Функция заполнения формы данными: имя, фамилия, почтовый индекс
@@ -66,7 +75,7 @@ class ShopPage:
 
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "summary_info")))
 
-    @allure.description("Прочитать со страницы итоговую стоимость (Total)")
+    @allure.description("Прочитать со страницы итоговую стоимость")
     def total(self):
         total_element = self.driver.find_element(By.CLASS_NAME, "summary_total_label")
         total_text = total_element.text
